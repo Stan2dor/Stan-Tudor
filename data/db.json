@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    { "title": "Blog Project 1", 
+        "body": "loremspus...", 
+        "id": 1 
+    },
+    { "title": "Blog Project 2", 
+        "body": "loremspus...", 
+        "id": 2 
+    },
+    { "title": "Blog Project 3", 
+        "body": "loremspus...", 
+        "id": 3 
+    }
+  ]
+}
