@@ -44,7 +44,9 @@ const Home = () => {
           Full name:
         </button>
       </div>
-      {blogs && <BlogList blogs={blogs} title='My blogs:' />}
+      <div className='blog-section'>
+        {blogs && <BlogList blogs={blogs} title='Blog:' />}
+      </div>
     </div>
   );
 };

@@ -76,6 +76,9 @@ div button {
   border-radius: 24px;
   cursor: pointer;
 }
+.blog-title {
+  margin-top: 50px;
+}
 /* blog previews / list 
 -------------------------*/
 .blog-preview {
