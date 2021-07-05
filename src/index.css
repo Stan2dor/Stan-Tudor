@@ -6,6 +6,12 @@
   font-family: "Quicksand";
   color: #333;
 }
+.App-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 .navbar {
   padding: 20px;
   display: flex;
@@ -41,10 +47,32 @@
   border-bottom: 1px solid #fafafa;
 }
 .blog-preview:hover {
-  box-shadow: 1px 3px 5px #212121;
+  box-shadow: 1px 3px 5px #bcbcbc;
 }
 .blog-preview h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px;
+}
+.blog-preview.title {
+  color: aqua;
+}
+
+.blog-list {
+  margin: 10px;
+  /* background: grey; */
+}
+.buttons {
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  /* flex-direction: column; */
+  align-content: left;
+  max-width: 300px;
+  /* margin: 0 auto; */
+  background: rgb(179, 179, 179);
+}
+
+.img {
+  max-width: 300px;
 }

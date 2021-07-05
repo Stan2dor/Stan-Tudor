@@ -6,8 +6,11 @@ const Home = () => {
   const [name, setName] = useState("Stan Tudor");
   const [age, setAge] = useState(47);
 
-  const { data: blogs, isLoading, error } = useFetch('http://localhost:8000/blogs')
-
+  const {
+    data: blogs,
+    isLoading,
+    error,
+  } = useFetch("http://localhost:8000/blogs");
 
   /* DELETE BLOG FUNCTION
   -----------------------------------*/
@@ -16,8 +19,7 @@ const Home = () => {
   //     setBlogs(newBlogs);
   //   };
 
-
-    /* RUN EFFECTS HERE:
+  /* RUN EFFECTS HERE:
   -----------------------------------*/
   useEffect(() => {
     console.log("use effect run");
@@ -35,14 +37,19 @@ const Home = () => {
     <div className='home'>
       {error && <div>{error}</div>}
       {isLoading && <div>loading... dont wait too long</div>}
-      <h2>My h2 Title here</h2>
+      <h2>Learning something new everyday...</h2>
+      &nbsp;
+      <p>This is my first React project</p>
+      &nbsp;
       <p>
         {name} is {age} years old
       </p>
-      <button onClick={handleClickName}>My son</button>
-      <button onClick={() => handleClickAgain("stranger")}>My Dogs</button>
-      <button onClick={() => setName("John Tudor")}>Change my name</button>
-      {blogs && <BlogList blogs={blogs} title="blogs:" />}
+      <div className='buttons'>
+        <button onClick={handleClickName}>My son</button>
+        <button onClick={() => handleClickAgain("stranger")}>My Dogs</button>
+        <button onClick={() => setName("John Wayne")}>Change my name</button>
+      </div>
+      {blogs && <BlogList blogs={blogs} title='My blogs:' />}
     </div>
   );
 };
