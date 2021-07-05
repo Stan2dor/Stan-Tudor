@@ -7,11 +7,16 @@
   color: #333;
 }
 .App-logo {
-  max-width: 300px;
+  max-width: 600px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  margin-top: 20px;
+  width: 30%;
+}
+.App-img {
+  max-width: 600px;
+  background: #333;
 }
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -41,6 +46,11 @@
 }
 .navbar a:hover {
   color: #f1356d;
+}
+.home .pTag-func {
+  font-size: 24px;
+  margin: 100px 0;
+  text-align: center;
 }
 .content {
   max-width: 600px;
@@ -122,10 +132,7 @@ div button {
   text-align: center;
 }
 .create p {
-  /* font-size: 20px; */
-  /* color: #f1356d; */
   margin-bottom: 30px;
-  /* text-align: center; */
 }
 .create input,
 .create textarea,

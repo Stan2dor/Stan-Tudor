@@ -12,6 +12,7 @@ function App() {
     <Router>
       <div className='App'>
         <Navbar />
+        <img src={logo} className='App-logo' alt='logo' />
         <div className='content'>
           <Switch>
             <Route exact path='/'>
@@ -28,9 +29,7 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-        </header>
+        <header className='App-header'></header>
       </div>
     </Router>
   );

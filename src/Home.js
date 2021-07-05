@@ -37,11 +37,9 @@ const Home = () => {
     <div className='home'>
       {error && <div>{error}</div>}
       {isLoading && <div>loading... dont wait too long</div>}
-      <h2>Learning something new everyday...</h2>
-      &nbsp;
-      <p>This is my first React project</p>
-      &nbsp;
-      <p>
+      <h2>Learn something new everyday...</h2>
+      <p>my first React project</p>
+      <p className='pTag-func'>
         {name} is {age} years old
       </p>
       <div className='buttons'>
