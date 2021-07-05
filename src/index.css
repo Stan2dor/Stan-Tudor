@@ -12,6 +12,10 @@
   margin-right: auto;
   width: 50%;
 }
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  } */
 .navbar {
   padding: 20px;
   display: flex;
@@ -46,6 +50,9 @@
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
 }
+.blog-preview a {
+  text-decoration: none;
+}
 .blog-preview:hover {
   box-shadow: 1px 3px 5px #bcbcbc;
 }
@@ -54,25 +61,54 @@
   color: #f1356d;
   margin-bottom: 8px;
 }
-.blog-preview.title {
-  color: aqua;
+
+/* blog details / id */
+.blog-details h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+.blog-details div {
+  margin: 20px 0;
 }
 
-.blog-list {
-  margin: 10px;
-  /* background: grey; */
+/* create new blog form */
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
 }
-.buttons {
-  padding: 20px;
-  display: flex;
-  justify-content: space-evenly;
-  /* flex-direction: column; */
-  align-content: left;
-  max-width: 300px;
-  /* margin: 0 auto; */
-  background: rgb(179, 179, 179);
+.create label {
+  text-align: left;
+  display: block;
 }
-
-.img {
-  max-width: 300px;
+.create h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.create p {
+  /* font-size: 20px; */
+  /* color: #f1356d; */
+  margin-bottom: 30px;
+  /* text-align: center; */
+}
+.create input,
+.create textarea,
+.create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.create button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }

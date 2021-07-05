@@ -1,16 +1,11 @@
 {
   "blogs": [
-    { "title": "Blog Project 1", 
-        "body": "loremspus...", 
-        "id": 1 
+    {
+      "title": "Blog Project 1",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "id": 1
     },
-    { "title": "Blog Project 2", 
-        "body": "loremspus...", 
-        "id": 2 
-    },
-    { "title": "Blog Project 3", 
-        "body": "loremspus...", 
-        "id": 3 
-    }
+    { "title": "Blog Project 2", "body": "loremspus...", "id": 2 },
+    { "title": "Blog Project 3", "body": "loremspus...", "id": 3 }
   ]
 }

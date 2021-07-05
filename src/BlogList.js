@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-
+import { Link } from "react-router-dom";
 
 const BlogList = ({ blogs, title, body }) => {
   //   const blogs = props.blogs; /* same thing as prop here
@@ -8,13 +7,13 @@ const BlogList = ({ blogs, title, body }) => {
 
   /* DELETE BLOG FUNCTION
   -----------------------------------*/
-    const [props, setProps] = useState(blogs);
-    // const setData = new blogs();
+  const [props, setProps] = useState(blogs);
+  // const setData = new blogs();
 
-    const handleDelete = (id) => {
-      const newBlogs = blogs.filter((blog) => blog.id !== id);
-      setProps(newBlogs);
-    };
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter((blog) => blog.id !== id);
+    setProps(newBlogs);
+  };
 
   return (
     <div className='blog-list'>
@@ -22,9 +21,11 @@ const BlogList = ({ blogs, title, body }) => {
       <p>{body}</p>
       {blogs.map((blog) => (
         <div className='blog-preview' key={blog.id}>
-          <h2> {blog.title} </h2>
-          <p> {blog.body} </p>
-          <button onClick={() => handleDelete(blog.id)}>delete blog</button>
+          <Link to={`/blogs/${blog.id}`}>
+            <h2> {blog.title} </h2>
+            <p> {blog.body} </p>
+            {/* <button onClick={() => handleDelete(blog.id)}>delete blog</button> */}
+          </Link>
         </div>
       ))}
     </div>
