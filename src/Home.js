@@ -3,7 +3,7 @@ import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 
 const Home = () => {
-  const [name, setName] = useState("Stan Tudor");
+  const [name, setName] = useState("Stan");
   const [age, setAge] = useState(47);
 
   const {
@@ -12,13 +12,6 @@ const Home = () => {
     error,
   } = useFetch("http://localhost:8000/blogs");
 
-  /* DELETE BLOG FUNCTION
-  -----------------------------------*/
-  //   const handleDelete = (id) => {
-  //     const newBlogs = blogs.filter((blog) => blog.id !== id);
-  //     setBlogs(newBlogs);
-  //   };
-
   /* RUN EFFECTS HERE:
   -----------------------------------*/
   useEffect(() => {
@@ -26,10 +19,12 @@ const Home = () => {
   }, [name]);
 
   const handleClickName = () => {
-    setName("Alex");
+    setName("Alexander");
     setAge(2);
   };
   const handleClickAgain = (name) => {
+    setName("Bobi");
+    setAge(5);
     console.log("hello " + name);
   };
 
@@ -44,8 +39,10 @@ const Home = () => {
       </p>
       <div className='buttons'>
         <button onClick={handleClickName}>My son</button>
-        <button onClick={() => handleClickAgain("stranger")}>My Dogs</button>
-        <button onClick={() => setName("John Wayne")}>Change name</button>
+        <button onClick={() => handleClickAgain("My Dog")}>My Dog</button>
+        <button onClick={() => setName("Stan Tudor") + setAge(48)}>
+          Full name:
+        </button>
       </div>
       {blogs && <BlogList blogs={blogs} title='My blogs:' />}
     </div>
