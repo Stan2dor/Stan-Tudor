@@ -47,7 +47,7 @@ const Home = () => {
       <div className='buttons'>
         <button onClick={handleClickName}>My son</button>
         <button onClick={() => handleClickAgain("stranger")}>My Dogs</button>
-        <button onClick={() => setName("John Wayne")}>Change my name</button>
+        <button onClick={() => setName("John Wayne")}>Change name</button>
       </div>
       {blogs && <BlogList blogs={blogs} title='My blogs:' />}
     </div>

@@ -16,6 +16,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   } */
+
+/* NAVBAR here
+  ----------------------*/
 .navbar {
   padding: 20px;
   display: flex;
@@ -43,6 +46,25 @@
   margin: 40px auto;
   padding: 20px;
 }
+div .buttons {
+  max-width: 400px;
+  display: flex;
+  align-self: auto;
+  justify-content: space-between;
+  background: #c3c3c3;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+div button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 24px;
+  cursor: pointer;
+}
 /* blog previews / list 
 -------------------------*/
 .blog-preview {
@@ -62,7 +84,8 @@
   margin-bottom: 8px;
 }
 
-/* blog details / id */
+/* blog details / id 
+-----------------------*/
 .blog-details h2 {
   font-size: 20px;
   color: #f1356d;
@@ -80,7 +103,8 @@
   cursor: pointer;
 }
 
-/* create new blog form */
+/* create new blog form 
+-------------------------*/
 .create {
   max-width: 400px;
   margin: 0 auto;
