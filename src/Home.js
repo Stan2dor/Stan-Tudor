@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
+import { useForm } from "react-hook-form";
 
 const Home = () => {
   const [name, setName] = useState("Stan");
   const [age, setAge] = useState(47);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => alert(JSON.stringify(data));
 
   const {
     data: blogs,
@@ -46,6 +49,19 @@ const Home = () => {
       </div>
       <div className='blog-section'>
         {blogs && <BlogList blogs={blogs} title='Blog:' />}
+      </div>
+      <div className='users'>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h4>Users data:</h4>
+          <input {...register("firstName")} placeholder='First name' />
+          <input {...register("lastName")} placeholder='Last name' />
+          <select {...register("category")}>
+            <option value=''>Select...</option>
+            <option value='A'>Category A</option>
+            <option value='B'>Category B</option>
+          </select>
+          <input type='submit' title='Users:' />
+        </form>
       </div>
     </div>
   );

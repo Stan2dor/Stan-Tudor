@@ -13,6 +13,15 @@ const Navbar = () => {
           }}>
           New Blog
         </a>
+        <a
+          href='/users'
+          style={{
+            color: "white",
+            backgroundColor: "#f1356d",
+            borderRadius: "8px",
+          }}>
+          Users
+        </a>
       </div>
     </nav>
   );
