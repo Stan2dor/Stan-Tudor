@@ -1,5 +1,5 @@
 const express = require("express");
-const App = require("../src/App");
+const App = require("./App");
 
 // const cors = require("cors");
 const helmet = require("helmet");
@@ -18,10 +18,9 @@ server.use(App);
 
 // global middlewares and the user's router
 // --------------------------------------------
-// server.get("/home", (req, res) => {
-//   res.send(App);
-// });
-
+server.get("/", (req, res) => {
+  res.send(App);
+});
 server.get("/api", (req, res) => {
   res.json({ message: "api is working" });
 });
@@ -31,11 +30,9 @@ server.get("/users", (req, res) => {
 server.use("*", (req, res) => {
   res.send("<h1>Hello there</h1>");
 });
-
 server.use((err, req, res, next) => {
   res.status(500).json({ message: err.message, stack: err.stack });
 });
-
 server.use(function (req, res) {
   res.status(404).send("Aint nobody got time for that");
 });

@@ -52,7 +52,7 @@ const Home = () => {
       </div>
       <div className='users'>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h4>Users data:</h4>
+          <h1>Users data:</h1>
           <input {...register("firstName")} placeholder='First name' />
           <input {...register("lastName")} placeholder='Last name' />
           <select {...register("category")}>
