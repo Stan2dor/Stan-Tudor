@@ -1,5 +1,5 @@
 const express = require("express");
-const App = require("./App");
+const App = require("./src/App");
 
 // const cors = require("cors");
 const helmet = require("helmet");
@@ -24,17 +24,17 @@ server.get("/", (req, res) => {
 server.get("/api", (req, res) => {
   res.json({ message: "api is working" });
 });
-server.get("/users", (req, res) => {
+server.get("/api/users", (req, res) => {
   res.json({ message: "users is here" });
 });
-server.use("*", (req, res) => {
-  res.send("<h1>Hello there</h1>");
-});
+// server.use("*", (req, res) => {
+//   res.send("<h1>Hello there</h1>");
+// });
 server.use((err, req, res, next) => {
   res.status(500).json({ message: err.message, stack: err.stack });
 });
 server.use(function (req, res) {
-  res.status(404).send("Aint nobody got time for that");
+  res.status(404).send("Aint nobody got time for that - page not found");
 });
 
 module.exports = server;

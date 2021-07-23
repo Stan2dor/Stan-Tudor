@@ -1,37 +1,37 @@
 /* eslint-disable */
 const express = require("express");
-const { validateUserId, validateUser } = require("../users/usersMiddleware");
+const { validatePost, validatePostId } = require("../posts/postsMiddleware");
 
 // You will need `users-model.js` and `posts-model.js` both
-const User = require("./usersModel");
+const Post = require("../posts/postsModel");
 // The middleware functions also need to be required
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  // RETURN AN ARRAY WITH ALL THE USERS
-  User.get()
-    .then((users) => {
-      res.json(users);
+  // RETURN AN ARRAY WITH ALL THE POSTS
+  Post.get()
+    .then((posts) => {
+      res.json(posts);
     })
     .catch(next);
 });
 
-router.get("/:id", validateUserId, (req, res) => {
-  // RETURN THE USER OBJECT
-  res.json(req.user);
+router.get("/:id", validatePost, (req, res) => {
+  // RETURN THE POST OBJECT
+  res.json(req.post);
 });
 
-router.post("/", validateUser, (req, res, next) => {
-  // RETURN THE NEWLY CREATED USER OBJECT
+router.post("/", validatePost, (req, res, next) => {
+  // RETURN THE NEWLY CREATED POST OBJECT
   // this needs a middleware to check that the request body is valid
   User.insert({ name: req.name })
-    .then((newUser) => {
-      res.status(201).json(newUser);
+    .then((newPost) => {
+      res.status(201).json(newPost);
     })
     .catch(next);
 });
 
-router.put("/:id", validateUserId, validateUser, (req, res, next) => {
+router.put("/:id", validatePostId, validatePost, (req, res, next) => {
   // RETURN THE FRESHLY UPDATED USER OBJECT
   // this needs a middleware to verify user id
   // and another middleware to check that the request body is valid
@@ -56,7 +56,7 @@ router.delete("/:id", validateUserId, async (req, res, next) => {
   }
 });
 
-router.get("/:id/users", validateUserId, async (req, res, next) => {
+router.get("/:id/posts", validateUserId, async (req, res, next) => {
   // RETURN THE ARRAY OF USER POSTS
   // this needs a middleware to verify user id
   try {
@@ -68,18 +68,23 @@ router.get("/:id/users", validateUserId, async (req, res, next) => {
 });
 
 // RETURN THE NEWLY CREATED USER POST
-router.post("/:id/users", validateUserId, async (req, res, next) => {
-  // this needs a middleware to verify user id
-  try {
-    const result = await User.insert({
-      post_id: req.params.id,
-      text: req.text,
-    });
-    res.status(201).json(result);
-  } catch (err) {
-    next(err);
+router.post(
+  "/:id/posts",
+  validateUserId,
+  validatePost,
+  async (req, res, next) => {
+    // this needs a middleware to verify user id
+    try {
+      const result = await Post.insert({
+        user_id: req.params.id,
+        text: req.text,
+      });
+      res.status(201).json(result);
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
 // and another middleware to check that the request body is valid
 router.use((err, req, res, next) => {
   res.status(err.status || 500).json({
