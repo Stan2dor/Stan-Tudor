@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("../data/db-config");
-const App = require("./src/App");
+// const App = require("./src/App");
+// const Home = require("./src/Home");
 
 // const cors = require("cors");
 const helmet = require("helmet");
@@ -16,13 +17,17 @@ server.use(express.json());
 // server.use("/api/posts", postsRoutes);
 // server.use("/api/users", usersRoutes);
 // server.use(cors);
-server.use(App);
+// server.use(App);
 
 // global middlewares and the user's router
 // --------------------------------------------
 server.get("/", (req, res) => {
-  res.send(App);
+  res.json({ message: "Homepage" });
 });
+// server.get("/", (req, res) => {
+//   res.send(App);
+// });
+
 server.get("/api", (req, res) => {
   res.json({ message: "api is working" });
 });
