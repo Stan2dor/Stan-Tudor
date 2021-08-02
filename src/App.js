@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Create from "./Create";
 import BlogDetails from "./BlogDetails";
-// import Users from "./Users";
+import Users from "./Users";
 import NotFound from "./NotFound";
 
 function App() {
@@ -37,7 +37,9 @@ function App() {
             <Route path='/blogs/:id'>
               <BlogDetails />
             </Route>
-            <Route path='/users/:id'>{/* <Users /> */}</Route>
+            <Route path='/users/:id'>
+              <Users />
+            </Route>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input {...register("firstName")} placeholder='First name' />
               <input {...register("lastName")} placeholder='Last name' />

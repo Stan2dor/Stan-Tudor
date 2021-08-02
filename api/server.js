@@ -1,13 +1,12 @@
 const express = require("express");
 const db = require("../data/db-config");
-// const App = require("./src/App");
-// const Home = require("./src/Home");
+const App = require("../src/App");
 
 // const cors = require("cors");
 const helmet = require("helmet");
 // const morgan = require("morgan");
 // const postsRoutes = require("./posts/postsRoutes");
-// const usersRoutes = require("./users/usersRoutes");
+// const usersRoutes = require("../users/usersRoutes");
 const server = express();
 
 server.use(helmet());
@@ -21,12 +20,12 @@ server.use(express.json());
 
 // global middlewares and the user's router
 // --------------------------------------------
-server.get("/", (req, res) => {
-  res.json({ message: "Homepage" });
-});
 // server.get("/", (req, res) => {
-//   res.send(App);
+//   res.json({ message: "Homepage" });
 // });
+server.get("/", (req, res) => {
+  res.send(App);
+});
 
 server.get("/api", (req, res) => {
   res.json({ message: "api is working" });

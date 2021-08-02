@@ -1,11 +1,11 @@
 /* eslint-disable */
-const express = require("express");
+const router = require("express").Router();
+
 const { validatePost, validatePostId } = require("../posts/postsMiddleware");
 
 // You will need `users-model.js` and `posts-model.js` both
 const Post = require("../posts/postsModel");
 // The middleware functions also need to be required
-const router = express.Router();
 
 router.get("/", (req, res, next) => {
   // RETURN AN ARRAY WITH ALL THE POSTS
