@@ -1,7 +1,7 @@
 /* eslint-disable */
 const router = require("express").Router();
 
-const { validatePost, validatePostId } = require("../posts/postsMiddleware");
+const { validatePost, validatePostId, validateUserId } = require("../posts/postsMiddleware");
 
 // You will need `users-model.js` and `posts-model.js` both
 const Post = require("../posts/postsModel");
@@ -31,46 +31,45 @@ router.post("/", validatePost, (req, res, next) => {
     .catch(next);
 });
 
-router.put("/:id", validatePostId, validatePost, (req, res, next) => {
-  // RETURN THE FRESHLY UPDATED USER OBJECT
-  // this needs a middleware to verify user id
-  // and another middleware to check that the request body is valid
-  User.update(req.params.id, { name: req.name })
-    .then(() => {
-      return User.getById(req.params.id);
-    })
-    .then((user) => {
-      res.json(user);
-    })
-    .catch(next);
-});
+// router.put("/:id", validatePostId, validatePost, (req, res, next) => {
+//   // RETURN THE FRESHLY UPDATED USER OBJECT
+//   // this needs a middleware to verify user id
+//   // and another middleware to check that the request body is valid
+//   User.update(req.params.id, { name: req.name })
+//     .then(() => {
+//       return User.getById(req.params.id);
+//     })
+//     .then((user) => {
+//       res.json(user);
+//     })
+//     .catch(next);
+// });
 
-router.delete("/:id", validateUserId, async (req, res, next) => {
-  // RETURN THE FRESHLY DELETED USER OBJECT
-  // this needs a middleware to verify user id
-  try {
-    await User.remove(req.params.id);
-    res.json(req.user);
-  } catch (err) {
-    next(err);
-  }
-});
+// router.delete("/:id", validateUserId, async (req, res, next) => {
+//   // RETURN THE FRESHLY DELETED USER OBJECT
+//   // this needs a middleware to verify user id
+//   try {
+//     await User.remove(req.params.id);
+//     res.json(req.user);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
-router.get("/:id/posts", validateUserId, async (req, res, next) => {
-  // RETURN THE ARRAY OF USER POSTS
-  // this needs a middleware to verify user id
-  try {
-    const result = await User.getUserPosts(req.params.id);
-    res.json(result);
-  } catch (err) {
-    next(err);
-  }
-});
+// router.get("/:id/posts", validateUserId, async (req, res, next) => {
+//   // RETURN THE ARRAY OF USER POSTS
+//   // this needs a middleware to verify user id
+//   try {
+//     const result = await User.getUserPosts(req.params.id);
+//     res.json(result);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 // RETURN THE NEWLY CREATED USER POST
 router.post(
   "/:id/posts",
-  validateUserId,
   validatePost,
   async (req, res, next) => {
     // this needs a middleware to verify user id
